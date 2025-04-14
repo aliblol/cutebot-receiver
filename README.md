@@ -73,7 +73,4 @@ Once you've built your "listener" code:
 ## 🎉 You Did It!
 Once your robot can follow instructions from the air, you've built your first **wireless robot control system**. That's pretty awesome!
 
-#### Metadata (used for search, rendering)
-
-* for PXT/microbit
 <script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
