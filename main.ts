@@ -29,14 +29,40 @@ input.onButtonPressed(Button.B, function () {
     radio.setGroup(currentGroup)
 })
 function rainbowLights () {
+    // Create a rainbow on the NeoPixel strip
     strip.showRainbow(1, 360)
-    for (let index = 0; index < 20; index++) {
+    // Define a list of rainbow colours as RGB tuples
+    // Red
+    // Orange
+    // Yellow
+    // Green
+    // Blue
+    // Indigo
+    // Violet
+    rainbowColors = [
+    [255, 0, 0],
+    [255, 127, 0],
+    [255, 255, 0],
+    [0, 255, 0],
+    [0, 0, 255],
+    [75, 0, 130],
+    [143, 0, 255]
+    ]
+    for (let i = 0; i <= 19; i++) {
+        // Rotate the strip lights
         strip.rotate(1)
         strip.show()
+        // Cycle through rainbow colours for headlights
+        colorIndex = i % rainbowColors.length
+        rgb = rainbowColors[colorIndex]
+        cuteBot.singleheadlights(cuteBot.RGBLights.RGB_L, rgb[0], rgb[1], rgb[2])
+        cuteBot.singleheadlights(cuteBot.RGBLights.RGB_R, rgb[0], rgb[1], rgb[2])
         basic.pause(100)
     }
+    // Turn off lights after
     strip.clear()
     strip.show()
+    cuteBot.closeheadlights()
 }
 // Optional: If a number value is received (like tilt), store it
 radio.onReceivedValue(function (name, value) {
@@ -45,9 +71,12 @@ radio.onReceivedValue(function (name, value) {
     }
 })
 let pitchValue = 0
+let rgb: number[] = []
+let colorIndex = 0
+let rainbowColors: number[][] = []
 let trick = false
 let strip: neopixel.Strip = null
 let currentGroup = 0
 // Set the group (channel) for radio communication
 radio.setGroup(currentGroup)
-strip = neopixel.create(DigitalPin.P15, 8, NeoPixelMode.RGB)
+strip = neopixel.create(DigitalPin.P15, 7, NeoPixelMode.RGB)
