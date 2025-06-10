@@ -48,7 +48,40 @@ function rainbowLights () {
     [75, 0, 130],
     [143, 0, 255]
     ]
-    for (let i = 0; i <= 19; i++) {
+    // megalovania melody
+    music.startMelody([
+    "D4:1",
+    "D4:1",
+    "D3:1",
+    "R:1",
+    "A4:1",
+    "R:2",
+    "G#4:1",
+    "R:1",
+    "G4:1",
+    "R:1",
+    "F4:1",
+    "R:1",
+    "D4:1",
+    "F4:1",
+    "G4:1",
+    "C4:1",
+    "C4:1",
+    "D3:1",
+    "R:1",
+    "A4:1",
+    "R:2",
+    "G#4:1",
+    "R:1",
+    "G4:1",
+    "R:1",
+    "F4:1",
+    "R:1",
+    "D4:1",
+    "F4:1",
+    "G4:1"
+    ], MelodyOptions.Once)
+    for (let i = 0; i <= 40; i++) {
         // Rotate the strip lights
         strip.rotate(1)
         strip.show()
